@@ -1,0 +1,33 @@
+{
+  "name": "hta-drop-target",
+  "version": "1.0.0",
+  "description": "make a drop target in the document of HTA(HTML Application), which can recieve a dragged and dropped file (or a folder) from Windows Explorer",
+  "main": "./release/hta-drop-target.esm.js",
+  "browser": "./release/hta-drop-target.esm.js",
+  "type": "module",
+  "types": "./release/hta-drop-target.esm.d.ts",
+  "files": [
+    "release/**/*.js",
+    "release/**/*.d.ts"
+  ],
+  "scripts": {
+    "dev": "rollup -c --watch",
+    "release": "SET NODE_BUILD_RELEASE=true && npm run ver-update && npm run build",
+    "build": "rollup -c",
+    "build-dev": "SET NODE_BUILD_DEV=true && rollup -c",
+    "ver-update": "node ./script/version.js"
+  },
+  "keywords": [
+    "HTA"
+  ],
+  "author": "gitcobra <gitpython@outlook.jp>",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-strip": "^3.0.2",
+    "@rollup/plugin-typescript": "^11.1.0",
+    "rollup": "^3.20.2",
+    "rollup-plugin-cleanup": "^3.2.1",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-dts": "^5.3.0"
+  }
+}

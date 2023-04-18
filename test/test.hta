@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>HtaDropTarget</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=5">
+<script src="../../dbg/debugger.js"></script>
+<HTA:APPLICATION
+		APPLICATIONNAME="HtaDropTarget.Test.HTA"
+		VERSION="1"
+		ID="droptest"
+		BORDER="thick"
+		BORDERSTYLE="normal"
+		CAPTION="yes"
+		CONTEXTMENU="yes"
+		INNERBORDER="yes"
+		NAVIGABLE="no"
+		SCROLL="yes"
+		SELECTION="yes"
+		SHOWINTASKBAR="yes"
+		SINGLEINSTANCE="yes"
+		SYSMENU="yes"
+		WINDOWSTATE="normal"
+/>
+</head>
+
+<body style="padding:0px; margin:0px;">
+
+<h1 style="width:100%; height:100%; text-align:center;"><span style="width:200px; font-size:medium; border:1px solid red;">Drag & Drop a File or a Folder to this HTA window from Explorer</span><span style="height:100%; vertical-align:middle;"></span></h1>
+
+<!-- drop target element -->
+<div id="target" style="display:none; position:absolute; left:0px; top:0px; width:100%; height:100%; z-index:100;"></div>
+
+<script src="../dist/hta-drop-target.js"></script>
+<script src="test.js"></script>
+</body>
+
+</html>
