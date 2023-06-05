@@ -18,7 +18,8 @@
     "ver-update": "node ./script/version.js"
   },
   "keywords": [
-    "HTA"
+    "HTA",
+    "windows"
   ],
   "author": "gitcobra <gitpython@outlook.jp>",
   "license": "ISC",

@@ -1,17 +1,15 @@
 # hta-drop-target
-make a drop target on HTML Application (HTA), which can recieve a dropped file path from Windows Explorer.
+make a drag & drop target on HTML Application (HTA), which can recieve a file path from Windows Explorer.
 
 # mechanism
-hta-drop-target uses WebBrowser Control(ActiveX) as a drop target. When the control get a dropped file, it trys to navigate to the path of the file, and fires several events with parameter include the **path**. This code reads that.
+hta-drop-target uses a WebBrowser Control(ActiveX) as a drop target. When the control get a dropped file, it trys to navigate to the path of the file, and fires several events with parameter include the **path**.
 
 # requirement
-Windows OS with Internet Explorer 9 or later. 
-
-*On IE6-8, it can only gets a folder.
+Windows OS with Internet Explorer 6 or later. 
 
 # installation
 
-Save [hta-drop-target.js](./release/hta-drop-target.js) to your local disk.
+download [hta-drop-target.js](./release/hta-drop-target.js?raw=true) and load it from your HTA file.
 ```
 <script src="hta-drop-target.js"></script>
 ```
@@ -34,10 +32,11 @@ sample.HTA
 <script>
 
 new HtaDropTarget(target, {
-  html: '<font color="red" size="7">DROP HERE</font>',
-  //htmlFilePath: './blank.html', // for more stability it needs a blank file which exists in the local disk.
+  html: '<font color="red" size="7">DROP HERE</font>', // target's html contents
+  htmlFile: './blank.html', // the html file is not necessary but it is required for more stable operation
+  //autoHide: true, // show/hide the drop target element automatically during dragging operation
   
-  // "ondrop" event handler gets the dropped file's path
+  // "ondrop" event handler receives the dropped file's path
   ondrop: function (path) {
     alert(path);
   }
@@ -46,12 +45,8 @@ new HtaDropTarget(target, {
 </script>
 </body>
 
-
 ```
-
-more complex sample:
-
-[test.ts](./test/test.ts)
 
 # API Document
 under construction.
+

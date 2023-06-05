@@ -1,9 +1,3 @@
-<script src="../../dbg/debugger.js"></script>
-
-
-
-
-
 <body bgcolor="gray">
 <div id="target" style="border:5px double red; width:320px; height:240px;"></div>
 
@@ -11,10 +5,11 @@
 <script>
 
 new HtaDropTarget(target, {
-  html: '<font color="red" size="7">DROP HERE</font>',
-  //htmlFilePath: './blank.html', // for more stability it needs a blank file which exists in the local disk.
+  html: '<font color="red" size="7">DROP HERE</font>', // target's html contents
+  htmlFile: './blank.html', // the html file is not necessary but it is required for more stable operation
+  //autoHide: true, // show/hide the drop target element automatically during dragging operation
   
-  // "ondrop" event handler gets the dropped file's path
+  // "ondrop" event handler receives the dropped file's path
   ondrop: function (path) {
     alert(path);
   }
