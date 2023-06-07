@@ -1,7 +1,9 @@
 type Listener = (path: string) => any;
 type HtaDropTargetOptions = {
+    autoHide?: boolean;
+    observer?: HTMLElement;
     html?: string;
-    htmlFilePath?: string;
+    htmlFile?: string;
     ondrop?: Listener;
     ondragenter?: (ev: MSEventObj) => any;
     ondragleave?: (ev: MSEventObj) => any;
@@ -13,17 +15,22 @@ declare class HtaDropTarget {
     private _target;
     private _listeners;
     private _WebBrowserObjectHTML;
+    private _autoHide;
+    private _observer?;
+    private _draggingOver;
     private _html?;
-    private _htmlFilePath?;
+    private _htmlFile?;
     private _initializedHtmlFile;
     private _locked;
     private _leIE6;
     private _leIE7;
     private _leIE8;
+    private _disabled;
     constructor(target: HTMLElement, args: Listener | HtaDropTargetOptions);
     setTargetHTML(html: string): void;
     private _generateBrowserAndAttachEventHandlers;
-    private _detachBrowserEventHandlers;
+    private _detachBrowserControlEventHandlers;
+    private _detachObserverEventHandlers;
     private _onStatusTextChange;
     private _wrapped_onStatusTextChange;
     private _onBeforeNavigate;
@@ -32,6 +39,22 @@ declare class HtaDropTarget {
     private _wrapped_onNavigateComplete;
     private _fireOnDrop;
     private _reset;
+    private _autoHideTimeoutId;
+    private _wrapped_ondragenter_for_observer_;
+    private _wrapped_ondragend_for_observer_;
+    private _wrapped_ondragover_for_observer_;
+    private _wrapped_ondragleave_for_observer_;
+    private _setAutoHidingEventsForOuterDocument;
+    private _wrapped_ondragover_for_wbc_;
+    private _wrapped_ondragenter_for_wbc_;
+    private _wrapped_ondragleave_for_wbc_;
+    private _wrapped_ondragend_for_wbc_;
+    private _setAutoHidingEventsForWBCDocument;
+    private _resetDraggingTimeout;
+    private _prepareToDragLeave;
+    show(flag?: boolean): void;
+    disable(flag?: boolean): void;
+    isDisabled(): boolean;
     dispose(): void;
 }
 
